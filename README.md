@@ -1,29 +1,50 @@
 Shover-World
 =============
 
+Lightweight implementation of the Shover game environment and a small GUI for
+running and testing AI agents.
+
 Quick start
 -----------
-1. Install dependencies (Python 3.8+ recommended):
+Requirements: Python 3.8+ and the dependencies in `requirements.txt`.
 
-2. Run the GUI:
+1. Install dependencies:
 
-   python3 main.py
+    pip install -r requirements.txt
+
+2. Run the GUI / demo:
+
+    python main.py
 
 AI solver
 ---------
-- The project includes an A* solver implementation used by the GUI for automated play.
-- To run the solver directly, import the solver class and create a `ShoverWorldEnv` instance.
+- Implement your A* agent and heuristic in `AstarTemplate.py`.
+- The environment and GUI will import and run your agent when `main.py` is
+   executed.
+- A simple example agent is provided in `simpleAgent.py` — to run it, replace
+   the solver import in `main.py` with the `simpleAgent` module (the file name
+   is `simpleAgent.py`).
 
 Maps and assets
 ---------------
-- Maps live in the `maps/` folder. Text map files can be loaded by path.
-- Graphics are in `assets/`. Default placeholder textures are used when images are missing.
+- Maps are stored in the `maps/` folder (plain text map files). Try the
+   included maps: `maps/map1.txt`, `maps/map2.txt`, `maps/map3.txt`.
+- Graphics and other resources live in the `assets/` folder. Placeholder
+   textures are used if images are missing.
 
 Project layout
 --------------
-- `environment.py` — main environment implementation
-- `interactive_gui.py` — base GUI renderer
-- `advanced_gui.py` — extended GUI with AI playback, recording, and stats
-- `ai_solver.py` / `ai_solver_template.py` — A* solver implementations
-- `main.py` — example runner
-- `maps/`, `assets/` — data folders
+- `main.py` — entry point / demo runner for the GUI and agent playback
+- `gui.py` — GUI and rendering code
+- `environment.py` — environment implementation and game rules
+- `AstarTemplate.py` — agent template (implement A* and your heuristic here)
+- `simpleAgent.py` — example agent to study or run
+- `maps/`, `assets/`, `requirements.txt` — data and dependencies
+
+Notes
+--------------------
+- To evaluate or submit an agent, modify only `AstarTemplate.py` (or add a
+   new agent module). Avoid changing core environment or GUI files.
+- You are free to add more maps to `maps/` for testing.
+
+Enjoy experimenting with pathfinding and heuristics!
