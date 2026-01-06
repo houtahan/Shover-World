@@ -77,7 +77,7 @@ class AStarSolver:
                     f"Stamina: {self.env.stamina:.0f} | H: {self._heuristic():.1f}"
                 )
 
-            for action in self._get_valid_actions():
+            for action in self.env._get_valid_actions():
                 self.env._restore(snap)
                 _, _, _, _, info = self.env.step(action)
                 if not info["valid_action"]:

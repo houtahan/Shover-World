@@ -12,7 +12,7 @@ from datetime import datetime
 from environment import ShoverWorldEnv
 from gui import EnhancedShoverWorldGUI
 from typing import Optional, Tuple, List, Dict
-from AstarTemplate import AStarSolver
+from simpleAgent import AStarSolver
 import threading
 import queue
 import time
@@ -658,7 +658,7 @@ class AdvancedShoverWorldGUI(EnhancedShoverWorldGUI):
             global STEMINA, SEARCH_TIME
             STEMINA = self.env.stamina
 
-            print(f"Remaining stemina:{STEMINA}, Search time{SEARCH_TIME:.3f}")
+            print(f"Remaining stemina: {STEMINA}, Search time: {SEARCH_TIME:.3f}")
 
     def _draw_stats_panel(self):
         panel_y = self.grid_height + self.hud_height
